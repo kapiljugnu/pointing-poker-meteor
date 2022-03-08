@@ -1,11 +1,15 @@
 import React from 'react';
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from './Home';
+import { Session } from './Session';
 
 export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello/>
-    <Info/>
-  </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/">
+        <Route index element={<Home />}></Route>
+        <Route path=":sid" element={<Session />}></Route>
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
